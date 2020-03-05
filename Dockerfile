@@ -13,7 +13,7 @@ RUN apk add --update --no-cache \
     gcc \
     python3-dev \
     && pip install --upgrade pip \
-    && pip install --no-cache-dir -r ansible \
+    && pip install --no-cache-dir ansible \
     && apk del .build-deps
     
 CMD ['ansible']
