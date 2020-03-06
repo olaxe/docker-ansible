@@ -11,7 +11,7 @@ echo ''
 
 if [ ! -f /root/.ssh/id_rsa ]; then
   echo 'Building the SSH key for the Git server'
-  ssh-keygen -t rsa -b 4096 -C "ansible-access@git.mansionis.com" -f /root/.ssh/id_rsa -q -P ""
+  ssh-keygen -t rsa -b 4096 -C "$SSH_KEY_NAME" /root/.ssh/id_rsa -q -P ""
   echo 'Built done. Below the public key to be added in your Git server:'
   cat /root/.ssh/id_rsa.pub
 else
