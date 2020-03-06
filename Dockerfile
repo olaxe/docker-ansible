@@ -5,6 +5,7 @@ ENV SLEEP_TIME=86400
 ENV USER="deployment"
 ENV PUID=999
 ENV PGID=999
+ENV SSH_KEY_NAME="root@ansible"
 
 RUN apk update && apk upgrade
 RUN apk add --no-cache openssh-client
