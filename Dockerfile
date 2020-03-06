@@ -16,5 +16,7 @@ RUN apk add --update --no-cache \
     && pip install --no-cache-dir ansible \
     && apk del .build-deps
 
+WORKDIR /
 COPY docker-entrypoint.sh /entrypoint.sh
+RUN ["chmod", "+x", "/docker-entrypoint.sh"]
 ENTRYPOINT ["/entrypoint.sh"]
