@@ -29,7 +29,7 @@ git clone $ANSIBLE_CONFIG_GIT_URL /etc/ansible
 echo ''
 
 echo 'Copy the .profile for root if any'
-copy /etc/ansible/root/.profile /root
+cp /etc/ansible/root/.profile /root
 chmod 700 /root/.profile
 echo ''
 
