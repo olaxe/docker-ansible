@@ -15,5 +15,5 @@ RUN apk add --update --no-cache \
     && pip install --upgrade pip \
     && pip install --no-cache-dir ansible \
     && apk del .build-deps
-    
-CMD ['/usr/local/bin/ansible']
+RUN chmod 700 startup.sh
+CMD ['startup.sh']
