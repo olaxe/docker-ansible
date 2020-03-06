@@ -6,6 +6,7 @@ ENV USER="deployment"
 ENV PUID=999
 ENV PGID=999
 ENV SSH_ROOT_KEY_NAME="root@ansible"
+ENV ANSIBLE_CONFIG_GIT_URL=""
 
 RUN apk update && apk upgrade
 RUN apk add --no-cache openssh-client
