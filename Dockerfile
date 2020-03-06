@@ -15,5 +15,6 @@ RUN apk add --update --no-cache \
     && pip install --upgrade pip \
     && pip install --no-cache-dir ansible \
     && apk del .build-deps
-COPY startup.sh /startup.sh
-CMD ['/startup.sh']
+
+COPY docker-entrypoint.sh /entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]
