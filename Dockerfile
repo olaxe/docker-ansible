@@ -18,5 +18,5 @@ RUN apk add --update --no-cache \
 
 WORKDIR /
 COPY docker-entrypoint.sh /entrypoint.sh
+ENTRYPOINT ["tail", "-f", "/dev/null"]
 RUN ["chmod", "+x", "/docker-entrypoint.sh"]
-ENTRYPOINT ["/entrypoint.sh"]
