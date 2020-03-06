@@ -1,12 +1,20 @@
 FROM python:3-alpine
 MAINTAINER "Mansionis"
 
-RUN apk add --update --no-cache \
-    openssh-client \
-    rsync \
-    musl-dev \
-    libffi-dev \
-    openssl-dev
+ENV SLEEP_TIME=86400
+ENV USER="deployment"
+ENV PUID=999
+ENV PGID=999
+
+RUN apk update && apk upgrade
+RUN apk add --no-cache openssh-client
+RUN apk add --no-cache git
+RUN apk add --no-cache rsync
+RUN apk add --no-cache musl-dev
+RUN apk add --no-cache musl-dev
+RUN apk add --no-cache libffi-dev
+RUN apk add --no-cache openssl-dev
+
 RUN apk add --update --no-cache \
     --virtual .build-deps \
     make \
@@ -16,7 +24,12 @@ RUN apk add --update --no-cache \
     && pip install --no-cache-dir ansible \
     && apk del .build-deps
 
-WORKDIR /
+RUN mkdir /root/.ssh
+VOLUME /root/.ssh
+
+RUN mkdir /etc/ansible
+VOLUME /etc/ansible
+
+WORKDIR /root
 COPY docker-entrypoint.sh /entrypoint.sh
-ENTRYPOINT ["tail", "-f", "/dev/null"]
-RUN ["chmod", "+x", "/entrypoint.sh"]
+ENTRYPOINT ["/entrypoint.sh"]
