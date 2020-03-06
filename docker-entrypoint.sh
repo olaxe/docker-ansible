@@ -24,9 +24,9 @@ chmod 700 /root/.ssh
 chmod 600 /root/.ssh/*.*
 echo ''
 
-echo 'Recreate the Ansible configuration folder'
-rm -rf /etc/ansible
-mkdir /etc/ansible
+#echo 'Recreate the Ansible configuration folder'
+#rm -rf /etc/ansible
+#mkdir /etc/ansible
 
 echo 'Clone configuration files from the Git Repository'
 git clone $ANSIBLE_CONFIG_GIT_URL /etc/ansible
