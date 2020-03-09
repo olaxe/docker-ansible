@@ -8,7 +8,7 @@ ENV PGID=999
 ENV SSH_ROOT_KEY_NAME="root@ansible"
 ENV ANSIBLE_CONFIG_GIT_URL=""
 
-RUN apk update && apk upgrade
+RUN apk --no-cache update && apk --no-cache upgrade
 RUN apk add --no-cache openssh-client
 RUN apk add --no-cache git
 RUN apk add --no-cache rsync
