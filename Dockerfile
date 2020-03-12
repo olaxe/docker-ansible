@@ -24,7 +24,7 @@ RUN apk add --update --no-cache \
     python3-dev \
     && pip install --upgrade pip \
     && pip install --no-cache-dir ansible \
-    && pip install dnspython
+    && pip install dnspython \
     && apk del .build-deps
 
 RUN mkdir /root/.ssh
