@@ -16,6 +16,7 @@ RUN apk add --no-cache musl-dev
 RUN apk add --no-cache musl-dev
 RUN apk add --no-cache libffi-dev
 RUN apk add --no-cache openssl-dev
+RUN apk add --no-cache nano
 
 RUN apk add --update --no-cache \
     --virtual .build-deps \
