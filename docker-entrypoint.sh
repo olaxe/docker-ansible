@@ -20,8 +20,8 @@ fi
 echo ''
 
 echo 'Ensure permissions are good for the root SSH folder'
-chmod 0700 /root/.ssh
-chmod 0600 /root/.ssh/*.*
+#chmod 0700 /root/.ssh
+#chmod 0600 /root/.ssh/{,.}*
 echo ''
 
 echo 'Clone configuration files from the Git Repository'
@@ -29,8 +29,10 @@ git clone $ANSIBLE_CONFIG_GIT_URL /etc/ansible
 echo ''
 
 echo 'Copy any file like the profile for root if any'
-cp /etc/ansible/root/*.* /root
-chmod 0700 /root/*.*
+cp /etc/ansible/root/{,.}* /root
+chmod -R 0600 /root/{,.}*
+chmod 0700 /root/.ssh
+chown -R root:root /root/{,.}*
 echo ''
 
 echo 'infinite waiting so the container can be used at any time to launch Ansible operations'
