@@ -28,8 +28,8 @@ echo 'Clone configuration files from the Git Repository'
 git clone $ANSIBLE_CONFIG_GIT_URL /etc/ansible
 echo ''
 
-echo 'Copy the .profile for root if any'
-cp /etc/ansible/root/.profile /root
+echo 'Copy any file like the profile for root if any'
+cp /etc/ansible/root/*.* /root
 chmod 700 /root/.profile
 echo ''
 
