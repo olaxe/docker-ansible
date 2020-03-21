@@ -25,9 +25,10 @@ echo ''
 
 echo 'Copy the home root if any'
 cp -fR /etc/ansible/root /
-chmod -R 0600 /root/* ; chmod -R 0600 /root/.*
+chmod -R 0600 /root/* #; chmod -R 0600 /root/.*
 chmod 0700 /root/.ssh
-chown -R root:root /root/* ; chown -R root:root /root/.*
+chmod 0700 /root/*.sh
+chown -R root:root /root/* #; chown -R root:root /root/.*
 echo ''
 
 echo 'infinite waiting so the container can be used at any time to launch Ansible operations'
