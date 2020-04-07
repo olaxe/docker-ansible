@@ -34,9 +34,7 @@ RUN git clone https://github.com/Gandi/gandi.cli.git
 WORKDIR /root/gandi.cli
 RUN python setup.py install
 
-RUN echo "Host *" >> /etc/ssh/ssh_config
-RUN echo "   StrictHostKeyChecking yes" >> /etc/ssh/ssh_config
-RUN echo "   GatewayPorts no" >> /etc/ssh/ssh_config
+COPY config/ssh_config /etc/ssh/ssh_config
 
 RUN mkdir /root/.ssh
 VOLUME /root/.ssh
