@@ -36,5 +36,8 @@ RUN mkdir /etc/ansible
 VOLUME /etc/ansible
 
 WORKDIR /root
+RUN git clone https://github.com/Gandi/gandi.cli.git
+RUN python setup.py install
+
 COPY docker-entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
