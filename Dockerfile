@@ -29,6 +29,11 @@ RUN apk add --update --no-cache \
     && pip install cryptography \
     && apk del .build-deps
 
+WORKDIR /root
+RUN git clone https://github.com/Gandi/gandi.cli.git
+WORKDIR /root/gandi.cli
+RUN python setup.py install
+
 RUN mkdir /root/.ssh
 VOLUME /root/.ssh
 
@@ -36,8 +41,5 @@ RUN mkdir /etc/ansible
 VOLUME /etc/ansible
 
 WORKDIR /root
-RUN git clone https://github.com/Gandi/gandi.cli.git
-RUN python setup.py install
-
 COPY docker-entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
