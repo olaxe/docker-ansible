@@ -29,11 +29,6 @@ RUN apk add --update --no-cache \
     && pip install cryptography \
     && apk del .build-deps
 
-WORKDIR /root
-RUN git clone https://github.com/Gandi/gandi.cli.git
-WORKDIR /root/gandi.cli
-RUN python setup.py install
-
 COPY config/ssh_config /etc/ssh/ssh_config
 
 RUN mkdir /root/.ssh
