@@ -64,5 +64,6 @@ Host *
    PubkeyAuthentication Yes
    StrictHostKeyChecking yes
    UpdateHostKeys No
+   UseRoaming no
    VerifyHostKeyDNS yes
    
