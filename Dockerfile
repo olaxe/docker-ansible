@@ -29,6 +29,8 @@ RUN apk add --update --no-cache \
     && pip install cryptography \
     && apk del .build-deps
 
+RUN ln -s /usr/local/bin/python3 /usr/bin/python3
+
 COPY config/ssh_config /etc/ssh/ssh_config
 
 RUN mkdir /root/.ssh
