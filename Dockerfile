@@ -12,6 +12,7 @@ RUN apk --no-cache update && apk --no-cache upgrade
 RUN apk add --no-cache openssh-client
 RUN apk add --no-cache git
 RUN apk add --no-cache rsync
+RUN apk add --no-cache bind-tools
 RUN apk add --no-cache musl-dev
 RUN apk add --no-cache musl-dev
 RUN apk add --no-cache libffi-dev
