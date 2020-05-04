@@ -26,8 +26,9 @@ RUN apk add --update --no-cache \
     python3-dev \
     && pip install --upgrade pip \
     && pip install --no-cache-dir ansible \
-    && pip install dnspython \
-    && pip install cryptography \
+    && pip install --no-cache-dir dnspython \
+    && pip install --no-cache-dir cryptography \
+    && pip install --no-cache-dir hcloud \
     && apk del .build-deps
 
 RUN ln -s /usr/local/bin/python3 /usr/bin/python3
