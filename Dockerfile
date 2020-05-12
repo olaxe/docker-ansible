@@ -31,11 +31,11 @@ RUN apt -qq -y update && \
 RUN localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8
 ENV LANG en_US.utf8
 
-RUN pip install --upgrade pip && \
-    pip install --no-cache-dir ansible && \
-    pip install --no-cache-dir dnspython && \
-    pip install --no-cache-dir cryptography && \
-    pip install --no-cache-dir hcloud
+RUN pip3 install --upgrade pip && \
+    pip3 install --no-cache-dir ansible && \
+    pip3 install --no-cache-dir dnspython && \
+    pip3 install --no-cache-dir cryptography && \
+    pip3 install --no-cache-dir hcloud
 
 RUN ln -s /usr/local/bin/python3 /usr/bin/python3
 
