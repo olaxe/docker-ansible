@@ -24,12 +24,24 @@ RUN apt -qq -y update && \
         #openssl-dev \
         nano \
         python3-pip && \
+        build-essential \
+        wget \
+        zlib1g-dev \
+        libssl-dev \
+        libldns-dev \
     apt -qq -y autoremove && \
     apt -qq -y autoclean && \
     rm -rf /var/lib/apt-get/lists/*
 
 RUN localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8
 ENV LANG en_US.utf8
+
+RUN wget -c https://cdn.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-8.2p1.tar.gz
+RUN tar -xzf openssh-8.2p1.tar.gz
+WORKDIR openssh-8.2p1
+# See options with ./configure -h
+RUN ./configure --with-ldns --prefix=/usr
+RUN make ssh && make install
 
 RUN pip3 install --upgrade pip && \
     pip3 install --no-cache-dir ansible && \
