@@ -23,7 +23,7 @@ RUN apt -qq update && \
         libffi-dev \
         #openssl-dev \
         nano \
-        python3-pip \
+        python3-pip && \
     apt -qq autoremove && \
     apt -qq autoclean && \
     rm -rf /var/lib/apt-get/lists/*
