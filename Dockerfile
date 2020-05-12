@@ -23,12 +23,12 @@ RUN apt -qq -y update && \
         libffi-dev \
         #openssl-dev \
         nano \
-        python3-pip && \
+        python3-pip \
         build-essential \
         wget \
         zlib1g-dev \
         libssl-dev \
-        libldns-dev \
+        libldns-dev && \
     apt -qq -y autoremove && \
     apt -qq -y autoclean && \
     rm -rf /var/lib/apt-get/lists/*
