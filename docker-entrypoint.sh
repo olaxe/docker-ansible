@@ -5,7 +5,7 @@ ansible --version
 ansible-playbook --version
 git --version
 ssh -V
-cat /etc/os-release
+lsb_release -a
 uname -a
 echo ''
 
