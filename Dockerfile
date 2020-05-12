@@ -10,9 +10,9 @@ ENV ANSIBLE_CONFIG_GIT_URL=""
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-RUN apt-get -qq update && \
-    apt-get -qq upgrade && \
-    apt-get -qq install \
+RUN apt -qq update && \
+    apt -qq upgrade && \
+    apt -qq install \
         locales \
         python3 \
         openssh-client \
@@ -24,8 +24,8 @@ RUN apt-get -qq update && \
         #openssl-dev \
         nano \
         python3-pip \
-    apt-get -qq autoremove && \
-    apt-get -qq autoclean && \
+    apt -qq autoremove && \
+    apt -qq autoclean && \
     rm -rf /var/lib/apt-get/lists/*
 
 RUN localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8
