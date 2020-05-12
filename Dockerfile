@@ -11,6 +11,7 @@ ENV ANSIBLE_CONFIG_GIT_URL=""
 RUN RUN apt-get -qq -y update && \
     apt-get -qq -y upgrade && \
     DEBIAN_FRONTEND=noninteractive apt-get -qq -y install \
+        locales \
         python3 \
         openssh-client \
         git \
@@ -24,6 +25,9 @@ RUN RUN apt-get -qq -y update && \
     apt-get -y autoremove && \
     apt-get -y autoclean && \
     rm -rf /var/lib/apt-get/lists/*
+
+RUN localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8
+ENV LANG en_US.utf8
 
 RUN pip install --upgrade pip && \
     pip install --no-cache-dir ansible && \
