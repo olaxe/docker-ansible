@@ -5,7 +5,7 @@ ansible --version
 ansible-playbook --version
 git --version
 ssh -V
-lsb_release -a
+echo -e $(cat /etc/issue ) | head -n1
 uname -a
 echo ''
 
