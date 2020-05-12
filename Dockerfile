@@ -37,8 +37,6 @@ RUN pip3 install --upgrade pip && \
     pip3 install --no-cache-dir cryptography && \
     pip3 install --no-cache-dir hcloud
 
-RUN ln -s /usr/local/bin/python3 /usr/bin/python3
-
 COPY config/ssh_config /etc/ssh/ssh_config
 
 RUN mkdir /root/.ssh
