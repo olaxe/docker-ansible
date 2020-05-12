@@ -1,4 +1,4 @@
-FROM ubuntu:lts
+FROM ubuntu
 MAINTAINER "Mansionis"
 
 ENV SLEEP_TIME=86400
