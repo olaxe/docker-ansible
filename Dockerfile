@@ -8,9 +8,11 @@ ENV PGID=999
 ENV SSH_ROOT_KEY_NAME="root@ansible"
 ENV ANSIBLE_CONFIG_GIT_URL=""
 
-RUN apt-get -qq -y update && \
-    apt-get -qq -y upgrade && \
-    DEBIAN_FRONTEND=noninteractive apt-get -qq -y install \
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN apt -qq update && \
+    apt -qq upgrade && \
+    apt -qq install \
         locales \
         python3 \
         openssh-client \
@@ -22,8 +24,8 @@ RUN apt-get -qq -y update && \
         openssl-dev \
         nano \
         python3-pip \
-    apt-get -y autoremove && \
-    apt-get -y autoclean && \
+    apt -qq autoremove && \
+    apt -qq autoclean && \
     rm -rf /var/lib/apt-get/lists/*
 
 RUN localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8
