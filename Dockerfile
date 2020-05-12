@@ -8,7 +8,7 @@ ENV PGID=999
 ENV SSH_ROOT_KEY_NAME="root@ansible"
 ENV ANSIBLE_CONFIG_GIT_URL=""
 
-RUN RUN apt-get -qq -y update && \
+RUN apt-get -qq -y update && \
     apt-get -qq -y upgrade && \
     DEBIAN_FRONTEND=noninteractive apt-get -qq -y install \
         locales \
