@@ -9,7 +9,8 @@ ENV SSH_ROOT_KEY_NAME="root@ansible"
 ENV ANSIBLE_CONFIG_GIT_URL=""
 ENV LANG en_US.utf8
 
-ENV OPENSSH_VERSION="openssh-8.2p1" # Latest version here: https://cdn.openbsd.org/pub/OpenBSD/OpenSSH/portable/
+# Latest version here: https://cdn.openbsd.org/pub/OpenBSD/OpenSSH/portable/
+ENV OPENSSH_VERSION="openssh-8.2p1" 
 
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt -qq -y update && \
