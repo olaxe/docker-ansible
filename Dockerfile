@@ -7,9 +7,11 @@ ENV PUID=999
 ENV PGID=999
 ENV SSH_ROOT_KEY_NAME="root@ansible"
 ENV ANSIBLE_CONFIG_GIT_URL=""
+ENV LANG en_US.utf8
+
+ENV OPENSSH_VERSION="openssh-8.2p1" # Latest version here: https://cdn.openbsd.org/pub/OpenBSD/OpenSSH/portable/
 
 ENV DEBIAN_FRONTEND=noninteractive
-
 RUN apt -qq -y update && \
     apt -qq -y upgrade && \
     apt -qq -y install \
@@ -34,11 +36,10 @@ RUN apt -qq -y update && \
     rm -rf /var/lib/apt-get/lists/*
 
 RUN localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8
-ENV LANG en_US.utf8
 
-RUN wget -c https://cdn.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-8.2p1.tar.gz
-RUN tar -xzf openssh-8.2p1.tar.gz
-WORKDIR openssh-8.2p1
+RUN wget -c https://cdn.openbsd.org/pub/OpenBSD/OpenSSH/portable/$OPENSSH_VERSION.tar.gz
+RUN tar -xzf $OPENSSH_VERSION.tar.gz
+WORKDIR $OPENSSH_VERSION
 # See options with ./configure -h
 RUN ./configure --with-ldns --prefix=/usr
 RUN make ssh && make install
