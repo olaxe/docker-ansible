@@ -44,14 +44,14 @@ WORKDIR $OPENSSH_VERSION
 # See options with ./configure -h
 RUN ./configure --with-ldns --prefix=/usr
 RUN make ssh && make install
+WORKDIR /root
+RUN rm -rf /root/$OPENSSH_VERSION
 
 RUN pip3 install --upgrade pip && \
     pip3 install --no-cache-dir ansible && \
     pip3 install --no-cache-dir dnspython && \
     pip3 install --no-cache-dir cryptography && \
     pip3 install --no-cache-dir hcloud
-
-COPY config/ssh_config /etc/ssh/ssh_config
 
 RUN mkdir /root/.ssh
 VOLUME /root/.ssh
