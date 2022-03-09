@@ -10,7 +10,7 @@ ENV ANSIBLE_CONFIG_GIT_URL=""
 ENV LANG en_US.utf8
 
 # Latest version here: https://cdn.openbsd.org/pub/OpenBSD/OpenSSH/portable/
-ENV OPENSSH_VERSION="openssh-8.2p1" 
+ENV OPENSSH_VERSION="openssh-8.9p1" 
 
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt -qq -y update && \
